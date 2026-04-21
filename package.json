@@ -1,0 +1,25 @@
+{
+  "name": "book-app",
+  "version": "1.0.0",
+  "description": "Cool book app",
+  "license": "ISC",
+  "author": "Maks T",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "live-server",
+    "build": "rollup -c --watch"
+  },
+  "dependencies": {
+    "axios": "^1.15.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@ljharb/tsconfig": "^0.3.2",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0",
+    "rollup-plugin-import-css": "^4.2.1",
+    "typescript": "^6.0.3"
+  }
+}
