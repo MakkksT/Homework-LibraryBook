@@ -1,16 +1,23 @@
-class App {
-    //паблик свойство
-    route = [               
-        {path: "", view: null}
-    ];
+import { MainView } from "./views/main/main";
 
-    constructor() {
+class App {
+    //паблик свойство, даёт направление куда идти
+    routes = [               
+        {path: "", view: MainView}
+    ];
+    //Подписываемся на хэш #, а не /
+    constructor() {;
         window.addEventListener('hashchange', this.route.bind(this));   //биндим на тек. контекст
         this.route();
     }
     //Функция роутинга
-    route() {               
-        const view = this.route.find(r => r.path == location.hash).view;
+    route() {
+        if (this.currentView) {
+            this.currentView.destroy();
+        }
+        const view = this.routes.find(r => r.path == location.hash).view;
+        this.currentView = new view();
+        this.currentView.render();
     }
 }
 
