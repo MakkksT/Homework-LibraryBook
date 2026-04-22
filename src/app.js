@@ -5,8 +5,15 @@ class App {
     routes = [               
         {path: "", view: MainView}
     ];
+    //стейт это объект находится на определенном уровне иерархии 
+    // на данный момент два уровня иерархии app и view(main.js)
+    //Делаем глобальный стейт
+    appState = {
+        favorites: []
+    };
+
     //Подписываемся на хэш #, а не /
-    constructor() {;
+    constructor() {
         window.addEventListener('hashchange', this.route.bind(this));   //биндим на тек. контекст
         this.route();
     }
@@ -16,9 +23,13 @@ class App {
             this.currentView.destroy();
         }
         const view = this.routes.find(r => r.path == location.hash).view;
-        this.currentView = new view();
+        this.currentView = new view(this.appState
+        );
         this.currentView.render();
     }
 }
 
 new App();
+
+//onchange нужен для реактивности объекта(проекта) она следит за изменениями в объекте, 
+// построена на proxy-api 
