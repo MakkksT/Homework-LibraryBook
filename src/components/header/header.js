@@ -11,8 +11,9 @@ export class Header extends DivComponent {
         this.el.classList.add('header');
         this.el.innerHTML = `
             <div> 
-            <img src=""  alt="Логотип"/>
+            <img src="/static/logo.svg"  alt="Логотип"/>
             </div>
         `;
+        return this.el;
     }
 }
