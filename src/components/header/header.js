@@ -1,5 +1,5 @@
 import { DivComponent } from "../../common/div-components";
-
+import './header.css';
 export class Header extends DivComponent {
     constructor(appState) {
         super();
@@ -7,7 +7,7 @@ export class Header extends DivComponent {
     }
     //Метод рендер переопределяем
     render() {
-        this.el.innerHTML = "";
+        this.el.innerHTML = '';
         this.el.classList.add('header');
         this.el.innerHTML = `
             <div> 
@@ -18,7 +18,7 @@ export class Header extends DivComponent {
                     <img src="/static/search.svg"  alt="Поиск"/>
                     Поиск книг
                 </a>
-                 <a class="menu__item" href="#">
+                 <a class="menu__item" href="#favorites">
                     <img src="/static/favorites.svg"  alt="Избранное"/>
                     Избранное
                     <div class="menu__counter">
