@@ -10,7 +10,7 @@ export default {
     plugins: [
         nodeResolve(),
         css({
-            output: 'bundle.css'
+            output: './dist/assets/bundle.css'
         })
     ]
 }
