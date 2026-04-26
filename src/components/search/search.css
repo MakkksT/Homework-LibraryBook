@@ -14,7 +14,7 @@
 .search__wrapper img {
   position: absolute;
   left: 10px;
-  top: 10px;
+  top: 12px;
 }
 
 .search__input {
@@ -23,4 +23,19 @@
   border-radius: 5px;
   color: #252525;
   padding: 15px 30px 15px 50px;
+  flex: 1;
+}
+
+.search__input::placeholder {
+  color: #494949;
+}
+
+.search button {
+  border: none;
+  background: var(--black);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
