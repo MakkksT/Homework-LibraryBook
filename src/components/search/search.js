@@ -1,9 +1,9 @@
 import { DivComponent } from "../../common/div-components";
-import './header.css';
-export class Header extends DivComponent {
-    constructor(appState) {
+import './search.css';
+export class Search extends DivComponent {
+    constructor(state) {
         super();
-        this.appState = appState;
+        this.state = state;
     }
     //Метод рендер переопределяем
     render() {
