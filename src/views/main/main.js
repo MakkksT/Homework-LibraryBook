@@ -14,12 +14,19 @@ export class MainView extends AbstractView {
         super();
         this.appState = appState;
         this.appState = onChange(this.appState, this.appStateHook.bind(this)); //подписываемся
+        this.state = onChange(this.state, this.stateHook.bind(this));
         this.setTitle('Поиск книг');
     }
 
     appStateHook(path) {
         if (path === 'favorites') {
             console.log(path);           //где бы мы не обновили фейворитс, будем срабатывать рендер
+        }
+    }
+
+    stateHook(path) {
+        if (path === 'searchQuery') {
+            console.log(path);           
         }
     }
 
