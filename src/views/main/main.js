@@ -24,6 +24,13 @@ export class MainView extends AbstractView {
         }
     }
 
+    //Загрузчик книг
+    async loadList(q ,offset) {
+        const res = await fetch(`https://openlibrary.org/search.json?q=${q}&offset=${offset}`);
+        return res.json();
+    }
+
+
     stateHook(path) {
         if (path === 'searchQuery') {
             console.log(path);           
