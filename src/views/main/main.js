@@ -24,17 +24,20 @@ export class MainView extends AbstractView {
         }
     }
 
+    async stateHook(path) {
+        if (path === 'searchQuery') {
+            this.state.loading = true;
+            const data = await this.loadList(this.state.searchQuery, this.state.offset); 
+            this.state.loading = false;   
+            console.log(data)
+            this.state.list = data.docs;       
+        }
+    }
+
     //Загрузчик книг
     async loadList(q ,offset) {
         const res = await fetch(`https://openlibrary.org/search.json?q=${q}&offset=${offset}`);
         return res.json();
-    }
-
-
-    stateHook(path) {
-        if (path === 'searchQuery') {
-            console.log(path);           
-        }
     }
 
     render() {
