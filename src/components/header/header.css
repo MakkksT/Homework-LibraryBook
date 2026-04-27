@@ -13,6 +13,7 @@
 }
 
 .menu__item {
+  color: var(--black);
   display: flex;
   align-items: center;
   gap: 10px;
