@@ -7,6 +7,7 @@ import { CardList } from "../../components/card-list/card-list.js";
 export class MainView extends AbstractView {
     state = {
         list: [],
+        numFound: 0,
         loading: false,
         searchQuery: undefined,
         offset: 0
@@ -31,6 +32,7 @@ export class MainView extends AbstractView {
             const data = await this.loadList(this.state.searchQuery, this.state.offset); 
             this.state.loading = false;   
             console.log(data)
+            this.state.numFound = data.numFound;
             this.state.list = data.docs;       
         }//добавляем ещё одну подписку для кол-во книг добавили доп. перендер
         if (path === 'list' || path === 'loading') {
