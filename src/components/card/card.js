@@ -16,7 +16,7 @@ export class Card extends DivComponent {
         this.el.innerHTML = `
             <div class="card__image">
             <img
-                src="https://covers.openlibrary.org/b/olid/${this.cardState.cover_edition_key}-S.jpg"
+                src="https://covers.openlibrary.org/b/olid/${this.cardState.cover_edition_key}-M.jpg"
                 alt="Обложка"
             />
             </div>
