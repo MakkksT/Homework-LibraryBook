@@ -22,7 +22,8 @@ export class Card extends DivComponent {
             </div>
             <div class="card__info">
             <div class="card__tag">
-                ${this.cardState.subject ? this.cardState.subject[0] : 'Не задано'}
+                ${console.log()}
+                // ${this.cardState.subject_facet ? this.cardState.subject_facet : 'Не задано'}
             </div>
             <div class="card__name">
             ${this.cardState.title}
