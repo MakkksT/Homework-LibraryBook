@@ -7,12 +7,23 @@ export class Card extends DivComponent {
         this.cardState = cardState;
     }
 
+    #addToFavorites() {
+        this.appState.favorites.push(this.cardState);
+    }
+
+
+    #deleteFromFavorites() {
+        this.appState.favorites = this.appState.favorites.filter(
+            b => b.key !== this.cardState.key                      //удаляем с помощью фильтр
+        )
+    }
     //Метод рендер переопределяем
     render() {
         this.el.classList.add('card');
         const existInFavorites = this.appState.favorites.find(
             b => b.key == this.cardState.key
         );
+        //subject(жанры) не подгружается, надо подтягивать данные из других источников
         this.el.innerHTML = `
             <div class="card__image">
             <img
@@ -21,9 +32,8 @@ export class Card extends DivComponent {
             />
             </div>
             <div class="card__info">
-            <div class="card__tag">
-                ${console.log()}
-                // ${this.cardState.subject_facet ? this.cardState.subject_facet : 'Не задано'}
+            <div class="card__tag">                
+                ${this.cardState.subject ? this.cardState.subject[0] : 'Не задано'} 
             </div>
             <div class="card__name">
             ${this.cardState.title}
@@ -41,7 +51,16 @@ export class Card extends DivComponent {
             </div>
             </div>
            
-        `   
+        ` 
+        if (existInFavorites) {
+            this.el
+            .querySelector('button')
+            .addEventListener('click', this.#deleteFromFavorites.bind(this));
+        } else {
+            this.el
+            .querySelector('button')
+            .addEventListener('click', this.#addToFavorites.bind(this));
+        }
         return this.el;
     }
 }

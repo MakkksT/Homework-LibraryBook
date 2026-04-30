@@ -22,7 +22,7 @@ export class MainView extends AbstractView {
 
     appStateHook(path) {
         if (path === 'favorites') {
-            console.log(path);           //где бы мы не обновили фейворитс, будем срабатывать рендер
+            this.render();               //где бы мы не обновили фейворитс, будем срабатывать рендер
         }
     }
 
@@ -39,7 +39,7 @@ export class MainView extends AbstractView {
             this.render();
         }
     }
-
+     //subject(жанры) не подгружается
     //Загрузчик книг
     async loadList(q ,offset) {
         const res = await fetch(`https://openlibrary.org/search.json?q=${q}&offset=${offset}`);
