@@ -19,6 +19,11 @@ export class MainView extends AbstractView {
         this.state = onChange(this.state, this.stateHook.bind(this));
         this.setTitle('Поиск книг');
     }
+//Добавили отписку чтобы не было утечек памяти
+    destroy() {
+        onChange.unsubscribe(this.appState);
+        onChange.unsubscribe(this.state);
+    }
 
     appStateHook(path) {
         if (path === 'favorites') {
