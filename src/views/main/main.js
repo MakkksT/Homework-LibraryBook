@@ -52,8 +52,7 @@ export class MainView extends AbstractView {
         main.append(new CardList(this.appState, this.state).render());
         this.app.innerHTML = '';
         this.app.append(main);
-        this.renderHeader();
-        this.appState.favorites.push('d');
+        this.renderHeader();   
     }
 
     renderHeader() {

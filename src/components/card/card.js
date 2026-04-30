@@ -62,5 +62,5 @@ export class Card extends DivComponent {
             .addEventListener('click', this.#addToFavorites.bind(this));
         }
         return this.el;
-    }
+        }
 }
