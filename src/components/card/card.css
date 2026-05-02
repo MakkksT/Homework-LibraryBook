@@ -48,6 +48,7 @@
 .card__footer {
   margin-top: auto;
   display: flex;
+  justify-content: space-between;
 }
 
 .button__add {
@@ -64,4 +65,14 @@
 
 .button__active {
   background: var(--white);
+}
+
+.card__year {
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 15px;
+  color: #dedede;
+  margin-bottom: 3px;
 }

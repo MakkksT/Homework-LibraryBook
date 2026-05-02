@@ -48,6 +48,9 @@ export class Card extends DivComponent {
                         :  '<img src="/static/favorites-white.svg" />'
                     }
                 </button>
+                <div class="card__year">
+                    ${this.cardState.first_publish_year}
+                </div>
             </div>
             </div>
            
