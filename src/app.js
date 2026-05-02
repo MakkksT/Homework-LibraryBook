@@ -8,7 +8,6 @@ class App {
         {path: "#favorites", view: FavoritesView}
     ];
     //стейт это объект находится на определенном уровне иерархии 
-    // на данный момент два уровня иерархии app и view(main.js)
     //Делаем глобальный стейт
     appState = {
         favorites: []
