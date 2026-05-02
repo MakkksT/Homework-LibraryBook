@@ -44,13 +44,21 @@ export class MainView extends AbstractView {
             this.render();
         }
     }
-     //subject(жанры) не подгружается
-    //Загрузчик книг
-    async loadList(q ,offset) {
-        const res = await fetch(`https://openlibrary.org/search.json?q=${q}&offset=${offset}`);
-        console.log(res);
-        return res.json();
+    //  subject(жанры) не подгружается
+    // Загрузчик книг
+async loadList(q, offset) {
+    const res = await fetch(`https://openlibrary.org/search.json?q=${q}&offset=${offset}`);
+    const data = await res.json();
+    
+    // Добавляем жанр каждой книге
+    if (data.docs) {
+        data.docs = await Promise.all(data.docs.map(doc => this.addGenres(doc)));
     }
+    
+    return data;
+}
+
+
 
     render() {
         const main = document.createElement('div');
@@ -69,3 +77,4 @@ export class MainView extends AbstractView {
         this.app.prepend(header);
     }
 }
+
