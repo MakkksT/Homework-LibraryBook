@@ -1,5 +1,5 @@
 node_modules/
-dist/
+# dist/
 build/
 .env
 *.log
@@ -7,5 +7,5 @@ coverage/
 .DS_Store
 .vscode/
 .idea/
-/dist
+# /dist
 /node_modules
